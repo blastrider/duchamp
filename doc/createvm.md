@@ -26,8 +26,22 @@ https://crosvm.dev/doc/kvm/index.html
 ================================================================
 
 ## Docs rust and vms
-Rust virtual Machine :
+###Rust virtual Machine :
 https://opensource.com/article/19/3/rust-virtual-machine
 
-Rust and Vmms:
+###Rust and Vmms:
 https://d1.awsstatic.com/events/reinvent/2019/Rust-VMM_Playing_Lego_with_virtualization_components_OPN403.pdf
+
+###Playing lego
+https://kvmforum2019.sched.com/event/Tmvq/playing-lego-with-virtualization-components-andreea-florescu-amazon-samuel-ortiz-intel
+
+###Cloud hypervisor
+https://michael2012z.medium.com/cloud-hypervisor-gdb-arm64-part-3-gap-analysis-a516eb7773b8
+
+================================================================
+
+## KVM APi
+https://docs.kernel.org/virt/kvm/api.html
+
+## KVM documentation
+https://dri.freedesktop.org/docs/drm/virt/kvm/index.html
