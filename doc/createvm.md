@@ -23,7 +23,7 @@ https://docs.rs/kvm-ioctls/latest/kvm_ioctls/
 kvm (je sais pas l'origine putain):
 https://crosvm.dev/doc/kvm/index.html
 
-================================================================
+=====================================================================
 
 ## Docs rust and vms
 ###Rust virtual Machine :
@@ -38,10 +38,38 @@ https://kvmforum2019.sched.com/event/Tmvq/playing-lego-with-virtualization-compo
 ###Cloud hypervisor
 https://michael2012z.medium.com/cloud-hypervisor-gdb-arm64-part-3-gap-analysis-a516eb7773b8
 
-================================================================
+=====================================================================
 
 ## KVM APi
 https://docs.kernel.org/virt/kvm/api.html
 
 ## KVM documentation
 https://dri.freedesktop.org/docs/drm/virt/kvm/index.html
+
+=====================================================================
+
+## Proxmox with rust
+### rust client
+https://github.com/andor44/proxmox-rs
+https://github.com/proxmox/proxmox-rs
+
+###l'api Proxmox
+https://pve.proxmox.com/wiki/Proxmox_VE_API
+
+=====================================================================
+
+## Faire une CLI
+https://docs.rs/clap/latest/clap/
+
+=====================================================================
+
+## Faire un fichier de conf en jinja ou yaml
+
+### Jinja
+https://docs.rs/minijinja/latest/minijinja/
+### yaml
+https://github.com/dtolnay/serde-yaml
+### config file
+https://docs.rs/config/latest/config/
+
+=====================================================================
