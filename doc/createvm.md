@@ -24,3 +24,10 @@ kvm (je sais pas l'origine putain):
 https://crosvm.dev/doc/kvm/index.html
 
 ================================================================
+
+## Docs rust and vms
+Rust virtual Machine :
+https://opensource.com/article/19/3/rust-virtual-machine
+
+Rust and Vmms:
+https://d1.awsstatic.com/events/reinvent/2019/Rust-VMM_Playing_Lego_with_virtualization_components_OPN403.pdf
