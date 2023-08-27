@@ -1,27 +1,35 @@
-use clap::Parser;
-///ça s'utilise comme ça maintenat pas comme dans le bouquin.
-/// Simple program to greet a person
-#[derive(Parser, Debug)]
-#[command(author, version, about, long_about = None)]
-struct Args {
-    /// Name of the person to greet
-    #[arg(short, long)]
-    firstname: String,
-    #[arg(short, long)]
-    lastname: String,
-    #[arg(short, long)]
-    age: u16,
+use core::fmt;
 
+enum TaskStatus {
+    DONE,
+    PENDING,
+}
 
-    /// Number of times to greet
-    #[arg(short, long, default_value_t = 1)]
-    count: u8,
+impl TaskStatus {
+    fn stringify(&self) -> String {
+        match &self {
+            &Self::DONE => "DONE".to_string(),
+            &Self::PENDING => "PENDING".to_string(),
+        }
+    }
+}
+
+impl fmt::Display for TaskStatus {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match &self {
+            &Self::DONE => {
+                write!(f, "DONE")
+            }
+            &Self::PENDING => {
+                write!(f, "PENDING")
+            }
+        }
+    }
 }
 
 fn main() {
-    let args = Args::parse();
-
-    for _ in 0..args.count {
-        println!("Hello {} {}, you are {} yo !", args.firstname, args.lastname, args.age)
-    }
+    println!("{}", TaskStatus::DONE);
+    println!("{}", TaskStatus::PENDING);
+    let outcome = TaskStatus::DONE.to_string();
+    println!("{}", outcome);
 }
