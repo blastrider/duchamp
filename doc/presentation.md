@@ -1,6 +1,6 @@
 ## What is Duchamp ?
 
-It's an opensource VM packaging tool written in Rust
+It's will be an opensource VM packaging tool written in Rust
 
 ## How it works ?
 
