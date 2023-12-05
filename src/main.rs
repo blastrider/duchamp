@@ -5,19 +5,19 @@ extern crate sys_info;
 use chrono::prelude::*;
 use std::process::Command;
 
-fn get_ram_usage() -> Result<u64, Box<dyn std::error::Error>> {
+fn get_sys_info() -> Result<(f64, f64, bool), Box<dyn std::error::Error>> {
     let mem_info = sys_info::mem_info()?;
-    Ok(mem_info.total - mem_info.avail)
-}
-
-fn get_disk_usage() -> Result<u64, Box<dyn std::error::Error>> {
     let disk_info = sys_info::disk_info()?;
-    Ok(disk_info.total - disk_info.free)
+    let ram_mb = convert_bytes_to_mb(mem_info.total - mem_info.avail);
+    let disk_mb = convert_bytes_to_mb(disk_info.total - disk_info.free);
+    let updates_available = check_updates();
+    Ok((ram_mb, disk_mb, updates_available))
 }
 
 fn check_updates() -> bool {
-    let output = Command::new("pamac")
-        .arg("update") // simulate mode
+    let output = Command::new("apt-get")
+        .arg("-s") // simulate mode
+        .arg("upgrade")
         .output()
         .expect("Failed to execute command");
 
@@ -31,12 +31,9 @@ fn convert_bytes_to_mb(bytes: u64) -> f64 {
 }
 
 fn main() {
-    match (get_ram_usage(), get_disk_usage()) {
-        (Ok(ram), Ok(disk)) => {
-            let ram_mb = convert_bytes_to_mb(ram);
-            let disk_mb = convert_bytes_to_mb(disk);
+    match get_sys_info() {
+        Ok((ram_mb, disk_mb, updates_available)) => {
             let now = Utc::now();
-            let updates_available = check_updates();
             let output = serde_json::json!({
                 "date": now.to_rfc3339(),
                 "ram_usage_MB": ram_mb,
